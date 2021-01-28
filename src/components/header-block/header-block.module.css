@@ -1,0 +1,7 @@
+.title {
+ background: red;
+}
+.root {
+ background: url(../../images/stars.svg) no-repeat center;
+ background-size: cover;
+}
