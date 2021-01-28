@@ -21,7 +21,7 @@ const Layout = ({id, title, descr, urlBg = false, colorBg = false}) => {
       }
       {
        descr && 
-       <div className={(s.desc + ' ' + s.full)}>
+       <div className={`${s.desc} ${s.full}`}>
         <p>{descr}</p>
        </div>
       }
