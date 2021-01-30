@@ -1,15 +1,15 @@
 import s from './layout.module.css';
 
-const Layout = ({id, title, descr, urlBg = false, colorBg = false}) => {
- const styleBg = urlBg ? {background: `url(${urlBg}) center no-repeat`, backgroundSize: 'cover' } : { background: colorBg };
- const styleInline = (urlBg || colorBg) ? styleBg : {};
-
+const Layout = ({id, title, urlBg = false, colorBg = false, children}) => {
+  const style = {};
+  if(urlBg) { style.backgroundImage = `url(${urlBg})`}
+  if (colorBg) { style.backgroundColor = colorBg }
  return (
   <>
    <section 
     className={s.root} 
     id={('layout_' +  id) }
-    style={styleInline}
+    style={style}
    >
     <div className={s.wrapper}>
      <article>
@@ -20,9 +20,9 @@ const Layout = ({id, title, descr, urlBg = false, colorBg = false}) => {
        </div>
       }
       {
-       descr && 
+       (children) && 
        <div className={`${s.desc} ${s.full}`}>
-        <p>{descr}</p>
+        { children }
        </div>
       }
      </article>
